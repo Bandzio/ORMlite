@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<EditText android:layout_width="match_parent" android:text="Imie"
+		android:id="@+id/editImie" android:layout_height="wrap_content"></EditText>
+	<EditText android:layout_width="match_parent" android:text="Nazwisko"
+		android:id="@+id/editNazwisko" android:layout_height="wrap_content"></EditText>
+	<EditText android:layout_width="match_parent" android:text="Semestr"
+		android:id="@+id/editSemestr" android:layout_height="wrap_content"></EditText>
+		
+	<EditText android:layout_width="match_parent" android:text="misto"
+		android:id="@+id/editmiasto" android:layout_height="wrap_content"></EditText>
+	<EditText android:layout_width="match_parent" android:text="ulica"
+		android:id="@+id/editulica" android:layout_height="wrap_content"></EditText>
+
+	<EditText android:layout_width="match_parent" android:text="nr domu"
+		android:id="@+id/editnrDomu" android:layout_height="wrap_content"></EditText>
+
+
+	<Button android:text="Zapisz do Bazy" android:id="@+id/btnSave"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<Button android:text="Usun Z Bazy" android:id="@+id/btnDelete"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<Button android:text="Get All" android:id="@+id/btnGetAll"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+</LinearLayout>
