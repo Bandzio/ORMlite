@@ -20,6 +20,7 @@ public class DataBaseORMAdapter extends OrmLiteSqliteOpenHelper {
 
 	Dao<Student, Integer> studentDao = null;
 	Dao<Adres, Integer> adresDao = null;
+	Dao<Phone, Integer> phoneDao = null;
 
 	public DataBaseORMAdapter(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,6 +33,7 @@ public class DataBaseORMAdapter extends OrmLiteSqliteOpenHelper {
 		try {
 			TableUtils.createTable(connectionSource, Student.class);
 			TableUtils.createTable(connectionSource, Adres.class);
+			TableUtils.createTable(connectionSource, Phone.class);
 		} catch (SQLException e) {
 			Log.v("ERROR", "onCreate");
 			e.printStackTrace();
@@ -70,5 +72,17 @@ public class DataBaseORMAdapter extends OrmLiteSqliteOpenHelper {
 		}
 
 		return adresDao;
+	}
+
+	public Dao<Phone, Integer> getPhoneDao() {
+
+		try {
+			if (phoneDao == null)
+				phoneDao = getDao(Phone.class);
+		} catch (SQLException e) {
+			Log.v("Error", "getPhoneDao");
+			e.printStackTrace();
+		}
+		return phoneDao;
 	}
 }

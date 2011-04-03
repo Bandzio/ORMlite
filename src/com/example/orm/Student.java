@@ -1,8 +1,12 @@
 package com.example.orm;
 
+import java.util.Collection;
+
 import android.util.Log;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /*
@@ -23,11 +27,20 @@ public class Student {
 	@DatabaseField
 	private String semestr;
 
-	@DatabaseField(foreign=true,canBeNull=false)
-	private Adres adres;
+	//Klasa student ma kolekcje adresow. 
+	// Adres musi miec pole odwolujace sie do konkretnego studenta. 
+	@ForeignCollectionField
+	private Collection<Adres> adres;
 	
 	public Student() {
-		Log.v("Student", "konstruktor");
+//		Log.v("Student", "konstruktor");
+	}
+	
+	public Student(String name, String surname, String semestr){
+		this.name = name;
+		this.surname = surname;
+		this.semestr = semestr;
+		 
 	}
 	
 
@@ -49,12 +62,14 @@ public class Student {
 	public String getSurname() {
 		return surname;
 	}
-	public void setAdres(Adres adres) {
+
+	public void setAdres(Collection<Adres> adres) {
 		this.adres = adres;
 	}
-	public Adres getAdres() {
+	public Collection<Adres> getAdres() {
 		return adres;
 	}
+	
 	public int getId() {
 		return id;
 	}
